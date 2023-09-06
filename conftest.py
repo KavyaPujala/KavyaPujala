@@ -1,16 +1,12 @@
 import pytest
-from selenium
-from selenium.webdriver.chrome import webdriver
+from selenium import webdriver
 
-
-#import time
 @pytest.fixture()
 def setup(request):
     driver = webdriver.Chrome()
-    driver.get("https://rahulshettyacademy.com/seleniumPractise/#/cart")
+    driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
+    driver.implicitly_wait(10)
     driver.maximize_window()
     request.cls.driver=driver
     yield
-    print("Test ended")
     driver.close()
-#time.sleep(10)
